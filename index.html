@@ -22,13 +22,13 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="format-detection" content="telephone=no" />
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
-        <script type="text/javascript" src="cordova-2.3.0.js"></script>
+        <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
 
         <title>Hello World</title>
         
         
         <script type="text/javascript">
-function toPix(val){
+/*function toPix(val){
   return parseInt(val) + "px";
 }
 function appendChildToParent( parent, child ){
@@ -131,9 +131,7 @@ GUIProgress.prototype.stop = function(){
   clearTimeout( this.m_timer );
   this.m_dom.style.display = "none";
 }
-/*document.onload = function(){
-  prog = GUIProgress(100,document.body);
-};*/
+*/
 // process the confirmation dialog result
 function onConfirm(button) {
     alert('You selected button ' + button);
@@ -155,8 +153,8 @@ function showConfirm() {
     <body>
         <div class="app">
             <h1>Apache Cordova</h1>
-            <p><a href="#" onclick="showAlert(); return false;">Show Alert</a></p>
-            <p><a href="#" onclick="prog = GUIProgress(100,document.body); return false;">progress</a></p>
+            <p><a href="#" onclick="showConfirm(); return false;">Show Alert</a></p>
+            
         </div>
         <script type="text/javascript">
             app.initialize();
