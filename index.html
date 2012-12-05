@@ -22,6 +22,106 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="format-detection" content="telephone=no" />
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <script>
+function GUIProgress(size, container){
+  this.m_size = size;
+  this.m_container = container;
+  this.m_dom = document.createElement("canvas");
+  this.m_dom.width = "" + size;
+  this.m_dom.height = "" + size;
+  this.m_dom.style.width = toPix(size);
+  this.m_dom.style.height = toPix(size);
+  this.m_dom.style.position = "absolute";
+  this.m_dom.style.left = "10px";
+  this.m_dom.style.top = "10px";
+  this.m_dom.style.zIndex = 5;
+  this.m_interval = 50;
+  this.m_step = 0;
+  var _this = this;
+  this.m_timer = setInterval( function(){ _this.pulsar(); }, this.m_interval );
+  
+  appendChildToParent( container, this.m_dom );
+}
+GUIProgress.prototype.pulsar = function(){
+  var ctx=this.m_dom.getContext("2d");
+  var writePoints = new Array();
+  //center 41, 28
+  var cx = 41;
+  var cy = 28;
+  writePoints[0] = new Object();
+  writePoints[0].x = 4;
+  writePoints[0].y = 47;
+  writePoints[0].r = 4;
+  writePoints[0].c = "#1188ff";
+  writePoints[0].innerc = "#1188ff";
+  writePoints[0].innerR = 1;
+  writePoints[1] = new Object();
+  writePoints[1].x = 18;
+  writePoints[1].y = 50;
+  writePoints[1].r = 6;
+  writePoints[1].c = "#1188ff";
+  writePoints[1].innerc = "#1188ff";
+  writePoints[1].innerR = 1;
+  writePoints[2] = new Object();
+  writePoints[2].x = 41;
+  writePoints[2].y = 44;
+  writePoints[2].r = 10;
+  writePoints[2].c = "#1188ff";
+  writePoints[2].innerc = "#1188ff";
+  writePoints[2].innerR = 1;
+  writePoints[3] = new Object();
+  writePoints[3].x = 67;
+  writePoints[3].y = 16;
+  writePoints[3].r = 15;
+  writePoints[3].c = "#ff2592";
+  writePoints[3].innerc = "#ffffff";
+  writePoints[3].innerR = 11;
+  writePoints[4] = new Object();
+  writePoints[4].x = 67;
+  writePoints[4].y = 16;
+  writePoints[4].r = 15;
+  writePoints[4].c = "#ff2592";
+  writePoints[4].innerc = "#ffffff";
+  writePoints[4].innerR = 11;
+  
+  if( this.m_step==1 ){
+    ctx.fillStyle = "#ffffff";
+    ctx.fillRect(0,0,this.m_size, this.m_size);
+  }
+  if( this.m_step > 49 ){
+    this.m_step=0;
+  }
+
+  
+  
+  var step = parseInt((this.m_step)/10);
+  var substep = parseInt((this.m_step)%10);
+  
+  var ofx = this.m_size/2-cx;
+  var ofy = this.m_size/2-cy;
+  
+  ctx.fillStyle = writePoints[step].c;
+  ctx.beginPath();
+  ctx.arc( writePoints[step].x + ofx, writePoints[step].y + ofy, writePoints[step].r*substep/10, 0, Math.PI*2, true);
+  ctx.closePath();
+  ctx.fill();
+  
+  ctx.fillStyle = writePoints[step].innerc;
+  ctx.beginPath();
+  ctx.arc( writePoints[step].x + ofx, writePoints[step].y + ofy, writePoints[step].innerR*substep/10, 0, Math.PI*2, true);
+  ctx.closePath();
+  ctx.fill();
+  
+  this.m_step+=1;
+}
+GUIProgress.prototype.stop = function(){
+  clearTimeout( this.m_timer );
+  this.m_dom.style.display = "none";
+}
+document.onload = function(){
+prog = GUIProgress(100,document.body);
+};
+        </script>
         <title>Hello World</title>
     </head>
     <body>
