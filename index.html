@@ -131,9 +131,9 @@ GUIProgress.prototype.stop = function(){
   clearTimeout( this.m_timer );
   this.m_dom.style.display = "none";
 }
-document.onload = function(){
+/*document.onload = function(){
   prog = GUIProgress(100,document.body);
-};
+};*/
 // process the confirmation dialog result
 function onConfirm(button) {
     alert('You selected button ' + button);
