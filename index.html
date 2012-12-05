@@ -28,7 +28,7 @@
         
         
         <script type="text/javascript">
-/*function toPix(val){
+function toPix(val){
   return parseInt(val) + "px";
 }
 function appendChildToParent( parent, child ){
@@ -131,9 +131,10 @@ GUIProgress.prototype.stop = function(){
   clearTimeout( this.m_timer );
   this.m_dom.style.display = "none";
 }
-*/
+
 // process the confirmation dialog result
 function onConfirm(button) {
+    p = GUIProgress(100,document.body);
     alert('You selected button ' + button);
 }
 
