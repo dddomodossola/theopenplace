@@ -127,12 +127,14 @@ GUIPanel.prototype.appendDecorations = function() {
   var tmp = this.m_div.m_controls.m_closeButton = styledDiv("close",0,10,25,25,1);
   tmp.style.left = null;
   tmp.style.right = toPix(10);
-  tmp.style.backgroundColor = "transparent";
+  tmp.style.backgroundColor = "red";
   tmp.style.cursor = "pointer";
   tmp.style.backgroundRepeat = "no-repeat";
   tmp.style.backgroundImage = "url('" + iconsetCloseIcon + "')";
-  tmp.style.zIndex = 2;
+  tmp.style.zIndex = 3;
   tmp.style.opacity = "0.5";
+  tmp.style.minWidth = toPix(25);
+  tmp.style.minHeight = toPix(25);
   appendChildToParent( this.m_div, this.m_div.m_controls.m_closeButton );
   
   this.initEvents();
