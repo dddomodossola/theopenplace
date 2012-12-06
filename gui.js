@@ -537,7 +537,7 @@ function GUIProgress(size, container){
   this.m_dom.style.position = "absolute";
   this.m_dom.style.left = "10px";
   this.m_dom.style.top = "10px";
-  this.m_dom.style.zIndex = 5;
+  this.m_dom.style.zIndex = 1;
   this.m_interval = 50;
   this.m_step = 0;
   var _this = this;
