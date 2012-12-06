@@ -22,9 +22,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
         
-	<link rel="stylesheet" href="jquery.mobile-1.2.0.min.css" />
 	<script src="jquery-1.8.2.min.js"></script>
-	<script src="jquery.mobile-1.2.0.min.js"></script>
 	<script src="gui.js"></script>
 	
         <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
@@ -50,21 +48,12 @@
 	  }
         
 	  var progress = null;
-	  $( document ).on( "mobileinit", function() {
+/*	  $( document ).on( "mobileinit", function() {
 	      // Make your jQuery Mobile framework configuration changes here!
 	      $.mobile.allowCrossDomainPages = true;
 	      $.mobile.phonegapNavigationEnabled = true;
 	  });
-	  $( document ).bind( "pageload", function( event, data ){
-	      alert("pageload");
-	      consoleRedirect( document.body );
-	      console.log("asdolomeo");
-	      console.debug("kjndjonokdn");
-	      console.error("rtyuiords");
-	      progress = new GUIProgress(100, document.getElementById("loader") );
-	      console.log("adlfijopeijf");
-	      alert("pageload");
-	  });
+*/
 	  $(document).ready(function(){
 	    alert("ready");
 	    consoleRedirect( document.body );
@@ -82,25 +71,13 @@
     </head>
     <body>
       <div data-role="page">
-
-	      <div data-role="header">
-		      <h1>My Title</h1>
-	      </div><!-- /header -->
-
-	      <div data-role="content">	
+	      <h1>My Title</h1>
+	      <div>	
 		      <div id="loader" style="height:100px;width:200px;background-color:'#ff0800';">
 		      </div>
-		      <p>Hello world</p>	
-		      <ul data-role="listview" data-inset="true" data-filter="true">
-			      <li><a href="#">Acura</a></li>
-			      <li><a href="#">Audi</a></li>
-			      <li><a href="#">BMW</a></li>
-			      <li><a href="#">Cadillac</a></li>
-			      <li><a href="#">Ferrari</a></li>
-		      </ul>
+		      <p>Hello world</p>
 		      
-	      </div><!-- /content -->
-
-      </div><!-- /page -->
+	      </div>
+      </div>
     </body>
 </html>
