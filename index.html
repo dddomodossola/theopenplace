@@ -30,13 +30,33 @@
         <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
 
         <script type="text/javascript">
+	  function consoleRedirect( dom ){
+	    var oldLog = console.log;
+	    var oldError = console.error;
+	    var oldDebug = console.debug;
+	    var fff = function (message) {
+			var l = document.createElement("div");
+			l.style.color = '#000';
+			l.style.fontSize = "10px";
+			l.style.minHeight = "10px";
+			l.style.minWidth = "200px";
+			l.innerHTML = message;
+			l.style.textAlign = "left";
+			dom.appendChild( l );
+		    };
+	    console.log = fff;
+	    console.debug = fff;
+	    console.error = fff;
+	  }
+        
 	  var progress = null;
 	  $( document ).on( "mobileinit", function() {
 	      // Make your jQuery Mobile framework configuration changes here!
 	      $.mobile.allowCrossDomainPages = true;
 	      $.mobile.phonegapNavigationEnabled = true;
 	  });
-	  $( document ).on( "pageloadfailed", function( event, data ){
+	  $( document ).on( "pageload", function( event, data ){
+	      consoleRedirect( document.body );
 	      progress = new GUIProgress(100, document.getElementById("loader") );
 	  });
         </script>
@@ -52,6 +72,8 @@
 	      </div><!-- /header -->
 
 	      <div data-role="content">	
+		      <div id="loader" style="height:100px;width:200px;background-color:'#ff0800';">
+		      </div>
 		      <p>Hello world</p>	
 		      <ul data-role="listview" data-inset="true" data-filter="true">
 			      <li><a href="#">Acura</a></li>
@@ -60,8 +82,7 @@
 			      <li><a href="#">Cadillac</a></li>
 			      <li><a href="#">Ferrari</a></li>
 		      </ul>
-		      <div id="loader" style="height:100px;width:200px;background-color:'#ff8800';">
-		      </div>
+		      
 	      </div><!-- /content -->
 
       </div><!-- /page -->
