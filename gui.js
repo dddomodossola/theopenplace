@@ -1,4 +1,4 @@
-iconsetRoot = "http://theopenplace.com/img/iconset/";
+iconsetRoot = "";
 guiFontFamily = "verdana,helvetica,arial,sans-serif";
 
 
