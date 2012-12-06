@@ -88,7 +88,7 @@
 	      },
 	      mapTypeId: google.maps.MapTypeId.ROADMAP   //*TERRAIN //HYBRID //SATELLITE //ROADMAP
 	    }
-	    map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+	    map = new google.maps.Map(document.body, myOptions);
 	  });
 	  
 	  function init(){
@@ -103,7 +103,7 @@
     <body onload="init();">
 
 	<h1>My Title</h1>
-	<div id="map_canvas" class="map" style="width:200px;height:300px;"></div>
+	<div id="map_canvas" style="width:200px;height:300px;background-color:'#ff8800';"></div>
 	<div>	
 		<div id="loader" style="height:100px;width:200px;background-color:'#ff0800';">
 		</div>
