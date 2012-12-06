@@ -55,13 +55,25 @@
 	      $.mobile.allowCrossDomainPages = true;
 	      $.mobile.phonegapNavigationEnabled = true;
 	  });
-	  $( document ).on( "pageload", function( event, data ){
+	  $( document ).bind( "pageload", function( event, data ){
+	      alert("pageload");
 	      consoleRedirect( document.body );
 	      console.log("asdolomeo");
 	      console.debug("kjndjonokdn");
 	      console.error("rtyuiords");
 	      progress = new GUIProgress(100, document.getElementById("loader") );
 	      console.log("adlfijopeijf");
+	      alert("pageload");
+	  });
+	  $(document).ready(function(){
+	    alert("ready");
+	    consoleRedirect( document.body );
+	      console.log("asdolomeo");
+	      console.debug("kjndjonokdn");
+	      console.error("rtyuiords");
+	      progress = new GUIProgress(100, document.getElementById("loader") );
+	      console.log("adlfijopeijf");
+	    alert("ready");
 	  });
         </script>
         
