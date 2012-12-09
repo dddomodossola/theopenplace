@@ -27,75 +27,86 @@
 	
         <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
         <script type="text/javascript"
-	  src="http://maps.googleapis.com/maps/api/js?sensor=true">
-	</script>
+		  src="http://maps.googleapis.com/maps/api/js?sensor=true">
+		</script>
 
         <script type="text/javascript">
-	  function consoleRedirect( dom ){
-	    var oldLog = console.log;
-	    var oldError = console.error;
-	    var oldDebug = console.debug;
-	    var fff = function (message) {
-			var l = document.createElement("div");
-			l.style.color = '#000';
-			l.style.fontSize = "10px";
-			l.style.minHeight = "10px";
-			l.style.minWidth = "200px";
-			l.innerHTML = message;
-			l.style.textAlign = "left";
-			dom.appendChild( l );
-		    };
-	    console.log = fff;
-	    console.debug = fff;
-	    console.error = fff;
-	  }
-        
-	  var progress = null;
-	  var page = null;
-	  var map = null;
-	  
-	  function initProg(){
-	    consoleRedirect( document.body );
-	      console.log("asdolomeo");
-
-	      
-	      console.log( "avail width" + window.screen.availWidth );
-	      console.log( "avail height" + window.screen.availHeight );
-	      page = new GUIPanel( "finestra", document.body, 25, 5, 200, 200, 3 );
-	      page.appendDecorations();
-	      console.log("asdolomeo");
-	      progress = new GUIProgress(100, page.m_div );
-	      console.log("asdolomeo");
-	  }
-	  
-	  
-	  
-	  $(document).ready(function(){
-	    alert("ready");
-	    initProg();
-	    var latitude = 40.454911;
-	    var longitude = 17.263086;
-	    var myOptions = {
-	      zoom: 14,
-	      center: new google.maps.LatLng( latitude, longitude ),
-	      mapTypeControl: false,
-	      panControl: false,
-	      scaleControl: false,
-	      streetViewControl: false,
-	      overviewMapControl: false,
-	      zoomControl: true,
-	      zoomControlOptions: {
-		style: google.maps.ZoomControlStyle.SMALL,
-		position: google.maps.ControlPosition.RIGHT_TOP
-	      },
-	      mapTypeId: google.maps.MapTypeId.ROADMAP   //*TERRAIN //HYBRID //SATELLITE //ROADMAP
-	    }
-	    map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
-	  });
-	  
-	  function init(){
-	    alert("init");
-	  }
+		  function consoleRedirect( dom ){
+			var oldLog = console.log;
+			var oldError = console.error;
+			var oldDebug = console.debug;
+			var fff = function (message) {
+				var l = document.createElement("div");
+				l.style.color = '#000';
+				l.style.fontSize = "10px";
+				l.style.minHeight = "10px";
+				l.style.minWidth = "200px";
+				l.innerHTML = message;
+				l.style.textAlign = "left";
+				dom.appendChild( l );
+				};
+			console.log = fff;
+			console.debug = fff;
+			console.error = fff;
+		  }
+			
+		  var progress = null;
+		  var page = null;
+		  
+		  var pageMap = null;
+		  var map = null;
+		  
+		  function initProg(){
+			consoleRedirect( document.body );
+			console.log("initProg");
+			/*
+			console.log( "avail width" + window.screen.availWidth );
+			console.log( "avail height" + window.screen.availHeight );
+			page = new GUIPanel( "finestra", document.body, 1, 1, window.screen.availWidth-2, window.screen.availHeight-2, 3 );
+			page.appendDecorations();
+			console.log("asdolomeo");
+			progress = new GUIProgress(100, page.m_div );
+			console.log("asdolomeo");
+			*/
+		  }
+		  
+		  
+		  
+		  $(document).ready(function(){
+			console.log("document ready");
+			initProg();
+			
+			pageMap = new GUIPanel( "map", document.body, 1, 1, window.screen.availWidth-2, window.screen.availHeight-2, 3 );
+			pageMap.appendDecorations();
+			domMap = styledDiv("map",1,1,window.screen.availWidth-2,window.screen.availHeight-2,1);
+			pageMap.lay = new GUIVBoxLayout( pageMap.m_div );
+			domMap.id = "gmap";
+			pageMap.lay.append( domMap );
+			
+			
+			var latitude = 40.454911;
+			var longitude = 17.263086;
+			var myOptions = {
+			  zoom: 14,
+			  center: new google.maps.LatLng( latitude, longitude ),
+			  mapTypeControl: false,
+			  panControl: false,
+			  scaleControl: false,
+			  streetViewControl: false,
+			  overviewMapControl: false,
+			  zoomControl: true,
+			  zoomControlOptions: {
+				style: google.maps.ZoomControlStyle.SMALL,
+				position: google.maps.ControlPosition.RIGHT_TOP
+			  },
+			  mapTypeId: google.maps.MapTypeId.ROADMAP   //*TERRAIN //HYBRID //SATELLITE //ROADMAP
+			}
+			map = new google.maps.Map(domMap, myOptions);
+		  });
+		  
+		  function init(){
+			alert("init");
+		  }
 	  
         </script>
         
@@ -105,12 +116,9 @@
     <body onload="init();">
 
 	<h1>My Title</h1>
-	<div id="map_canvas" style="width:200px;height:300px;background-color:'#ff8800';"></div>
 	<div>	
 		<div id="loader" style="height:100px;width:200px;background-color:'#ff0800';">
 		</div>
-		<p>Hello world</p>
-		      
 	</div>
 
     </body>
