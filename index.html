@@ -76,9 +76,9 @@
 			console.log("document ready");
 			initProg();
 			
-			pageMap = new GUIPanel( "map", document.body, 1, 1, window.screen.availWidth-50, window.screen.availHeight-50, 3 );
+			pageMap = new GUIPanel( "map", document.body, 1, 1, window.screen.availWidth-100, window.screen.availHeight-100, 3 );
 			pageMap.appendDecorations();
-			domMap = styledDiv("map",1,1,window.screen.availWidth-2-50,window.screen.availHeight-2-50,1);
+			domMap = styledDiv("map",1,1,window.screen.availWidth-2-100,window.screen.availHeight-2-100,1);
 			pageMap.lay = new GUIVBoxLayout( pageMap.m_div );
 			domMap.id = "gmap";
 			pageMap.lay.append( domMap );
@@ -97,7 +97,7 @@
 			  zoomControl: true,
 			  zoomControlOptions: {
 				style: google.maps.ZoomControlStyle.SMALL,
-				position: google.maps.ControlPosition.RIGHT_TOP
+				position: google.maps.ControlPosition.RIGHT_BOTTOM
 			  },
 			  mapTypeId: google.maps.MapTypeId.ROADMAP   //*TERRAIN //HYBRID //SATELLITE //ROADMAP
 			}
@@ -106,7 +106,8 @@
 		  
 		  function init(){
 			alert("init");
-			console.log("viewport width: " + document.getElementByName("viewport").content );
+			console.log("screen width: " + window.screen.width );
+			console.log("screen avail width: " + window.screen.availWidth );
 		  }
 	  
         </script>
