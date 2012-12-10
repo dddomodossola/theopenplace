@@ -84,6 +84,8 @@
 			initProg();
 			
 			pageMap = new GUIPanel( "map", document.body, 1, 1, window.screen.availWidth-100, window.screen.availHeight-100, 3 );
+			pageMap.m_div.style.width = "100%";
+			pageMap.m_div.style.height = "100%";
 			pageMap.appendDecorations();
 			domMap = styledDiv("map",1,1,window.screen.availWidth-2-100,window.screen.availHeight-2-100,1);
 			pageMap.lay = new GUIVBoxLayout( pageMap.m_div );
