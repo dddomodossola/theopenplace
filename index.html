@@ -78,7 +78,7 @@
 			
 			pageMap = new GUIPanel( "map", document.body, 1, 1, window.screen.availWidth-50, window.screen.availHeight-50, 3 );
 			pageMap.appendDecorations();
-			domMap = styledDiv("map",1,1,window.screen.availWidth-2,window.screen.availHeight-2,1);
+			domMap = styledDiv("map",1,1,window.screen.availWidth-2-50,window.screen.availHeight-2-50,1);
 			pageMap.lay = new GUIVBoxLayout( pageMap.m_div );
 			domMap.id = "gmap";
 			pageMap.lay.append( domMap );
@@ -106,6 +106,7 @@
 		  
 		  function init(){
 			alert("init");
+			console.log("viewport width: " + document.getElementByName("viewport").content );
 		  }
 	  
         </script>
