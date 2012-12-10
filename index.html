@@ -73,7 +73,14 @@
 		  
 		  
 		  $(document).ready(function(){
-			console.log("document ready");
+
+		  });
+		  
+		  function init(){
+			alert("init");
+			console.log("screen width: " + window.screen.width );
+			console.log("screen avail width: " + window.screen.availWidth );
+						console.log("document ready");
 			initProg();
 			
 			pageMap = new GUIPanel( "map", document.body, 1, 1, window.screen.availWidth-100, window.screen.availHeight-100, 3 );
@@ -102,12 +109,6 @@
 			  mapTypeId: google.maps.MapTypeId.ROADMAP   //*TERRAIN //HYBRID //SATELLITE //ROADMAP
 			}
 			map = new google.maps.Map(domMap, myOptions);
-		  });
-		  
-		  function init(){
-			alert("init");
-			console.log("screen width: " + window.screen.width );
-			console.log("screen avail width: " + window.screen.availWidth );
 		  }
 	  
         </script>
