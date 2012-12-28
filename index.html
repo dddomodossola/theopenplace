@@ -59,15 +59,17 @@
 		  function initProg(){
 			consoleRedirect( document.body );
 			console.log("initProg");
-			/*
+			
 			console.log( "avail width" + window.screen.availWidth );
 			console.log( "avail height" + window.screen.availHeight );
-			page = new GUIPanel( "finestra", document.body, 1, 1, window.screen.availWidth-2, window.screen.availHeight-2, 3 );
+			console.log( "body width" + document.body.style.width );
+			console.log( "body height" + document.body.style.height );
+			/*page = new GUIPanel( "finestra", document.body, 1, 1, window.screen.availWidth-2, window.screen.availHeight-2, 3 );
 			page.appendDecorations();
 			console.log("asdolomeo");
 			progress = new GUIProgress(100, page.m_div );
-			console.log("asdolomeo");
-			*/
+			console.log("asdolomeo");*/
+			
 		  }
 		  
 		  
@@ -83,10 +85,10 @@
 			initProg();
 			
 			pageMap = new GUIPanel( "map", document.body, 1, 1, window.screen.availWidth-100, window.screen.availHeight-100, 3 );
-			pageMap.m_div.style.width = "300px";
-			pageMap.m_div.style.height = "300px";
+			/*pageMap.m_div.style.width = "300px";
+			pageMap.m_div.style.height = "300px";*/
 			pageMap.appendDecorations();
-			domMap = styledDiv("map",1,1,window.screen.availWidth-2-100,window.screen.availHeight-2-100,1);
+			domMap = styledDiv("map",1,1,window.screen.availWidth-2-200,window.screen.availHeight-2-100,1);
 			pageMap.lay = new GUIVBoxLayout( pageMap.m_div );
 			domMap.id = "gmap";
 			pageMap.lay.append( domMap );
